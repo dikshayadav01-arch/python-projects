@@ -1,0 +1,32 @@
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+import time
+driver=webdriver.Chrome(executable_path='C:\Users\Diksha\Downloads\chromedriver-win64\chromedriver-win64\chromedriver.exe')
+#driver.get('http://www.google.com')
+driver.get('http://www.amazon.in')
+driver.maximize_window()
+driver.find_element_by_xpath("//input[@id='twotabsearchtextbox']").send_keys('iphones')
+driver.find_element_by_xpath("//input[@id='nav-search-submit-button']").click()
+list=driver.find_elements_by_xpath("//span[@class='iPhone 15 (128 GB) - Blue']")
+print(str(len(list)+'products found'))
+for i in list:
+    print(i.text)
+#time.sleep(5)
+#driver.refresh()
+#select=driver.find_element_by_link_text('Electronics')
+#select.click()
+#input=driver.find_element_by_name('q')
+#input.send_keys('selenium')
+#time.sleep(5)
+#select1=driver.find_element_by_link_text('Audio')
+#select1.click()
+#button=driver.find_element_by_name('btnt')
+#button=driver.find_element_by_class_name('gN089b')
+#button.click()
+#time.sleep(5)
+#driver.back()
+#time.sleep(5)
+#driver.forward()
+#time.sleep(5)
+driver.quit()
